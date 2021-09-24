@@ -1,10 +1,13 @@
 var a = 1;
+var b = 2;
+var c = 3;
+debugger
+a = 4;
 
+b = 6;
 
-function bark(){
-    console.log('汪');
-}
+debugger
 
-barc();
+var dogStatus = require('./dogStatus');
 
-console.log(a);
+dogStatus.bark(4);
