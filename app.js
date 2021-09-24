@@ -1,2 +1,10 @@
-var express = require('express');
-console.log('hi nodemon1');
+var a = 1;
+
+
+function bark(){
+    console.log('汪');
+}
+
+barc();
+
+console.log(a);
