@@ -11,8 +11,14 @@ app.get('/user', function(req, res){
     res.send(userHtml);
 })
 
-app.get('/user/edit-profile', function(req, res){
-    res.send('<html><head></head><body><h1>edit profile</h1></body></html>');
+app.get('/user/:name/', function(req, res){
+    var myName = req.params.name;
+    console.log(myName);
+    if(myName !== 'andy'){
+        res.send('<html><head></head><body><h1>查無此人</h1></body></html>');
+    }else{
+        res.send('<html><head></head><body><h1>edit '+  myName +' profile</h1></body></html>');
+    }
 })
 
 app.get('/user/edit-image', function(req, res){
