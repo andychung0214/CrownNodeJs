@@ -1,9 +1,10 @@
 var express = require('express');
 var app = express();
 
-var hiHtml = '<html><head></head><body><h1>Hi</h1></body></html>';
-app.get('/', function(req, res){
-    res.send(hiHtml);
+// Andy 的音樂列表，抓前10筆
+app.get('/music/list', function(req, res){
+    var limit = req.query.limit;
+    console.log(req.query);    
 })
 
 var userHtml = '<html><head></head><body><h1>Andy</h1></body></html>';
