@@ -1,8 +1,17 @@
 var express = require('express');
 var app = express();
 
+var login = function(req, res, next){
+    var _url = req.url;
+    if(_url !== '/'){
+        next()
+    }else{
+        res.send('資料有錯');
+    }
+}
+
 var inHtml = '<html><head></head><body><h1>Andy</h1></body></html>';
-app.get('/', function(req, res){
+app.get('/', login, function(req, res){
     res.send(inHtml)
 })
 
