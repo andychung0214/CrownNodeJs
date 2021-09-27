@@ -8,12 +8,21 @@ app.get('/', function(req, res){
 
 app.use(function(req, res, next){
     console.log('有人進來了')
+    zz();
     next();
 })
 
 app.use(function(req, res, next){
     console.log('已通過驗證')
     next();
+})
+
+app.use(function(req, res, next){
+    res.status(404).send('Sorry This Page Not Found');
+})
+
+app.use(function(err, req, res, next){
+    res.status(500).send('程式有問題，請稍後嘗試')
 })
 
 // Andy 的音樂列表，抓前10筆
