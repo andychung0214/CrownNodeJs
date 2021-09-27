@@ -1,6 +1,21 @@
 var express = require('express');
 var app = express();
 
+var inHtml = '<html><head></head><body><h1>Andy</h1></body></html>';
+app.get('/', function(req, res){
+    res.send(inHtml)
+})
+
+app.use(function(req, res, next){
+    console.log('有人進來了')
+    next();
+})
+
+app.use(function(req, res, next){
+    console.log('已通過驗證')
+    next();
+})
+
 // Andy 的音樂列表，抓前10筆
 app.get('/music/list', function(req, res){
     var limit = req.query.limit;
