@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
+
+var path = require('path');
 var user = require('./routes/user');
-
-
+var favicon = require('serve-favicon');
 var engine = require('ejs-locals');
 // var bodyParser = require('body-parser');
 
@@ -12,6 +13,9 @@ app.set('view engine', 'ejs');
 
 //增加靜態檔案的路徑
 app.use(express.static('public'))
+
+//USE Favicon
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 app.use('/user', user);
 
